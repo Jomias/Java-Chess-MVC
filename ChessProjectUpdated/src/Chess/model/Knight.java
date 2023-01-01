@@ -54,14 +54,14 @@ public class Knight extends Piece {
 
 	private void addIfValid(Board board, List<Move> moves, Point point) {
 		// if the location is valid
-        if(board.ValidSpot(point)) {
-            // and the location does not contain same color piece
-            Piece pc = board.getPieceAt(point);
-            if(pc == null || pc.white != this.white) {
-                // all the move to the list
-            	moves.add(new Move(this, point, pc));
-            }
-        }
+		if(board.ValidSpot(point)) {
+		    // and the location does not contain same color piece
+		    Piece pc = board.getPieceAt(point);
+		    if(pc == null || pc.white != this.white) {
+			// all the move to the list
+			moves.add(new Move(this, point, pc));
+		    }
+		}
 	}
 
 	@Override
