@@ -26,23 +26,23 @@ public class Knight extends Piece {
 	@Override
 	public List<Move> calculatePossibleMoves(Board board, boolean checkKing) {
 		int x = piecePosition.x;
-        int y = piecePosition.y;
+		int y = piecePosition.y;
 
-        List<Move> moves = new ArrayList<Move>();
-		
-		// if no board given, return empty list
-        if (board == null)
-            return moves;
+		List<Move> moves = new ArrayList<Move>();
+
+			// if no board given, return empty list
+		if (board == null)
+		    return moves;
         
-        // check L-shapes
-        addIfValid(board, moves, new Point(x + 1, y + 2));
-        addIfValid(board, moves, new Point(x - 1, y + 2));
-        addIfValid(board, moves, new Point(x + 1, y - 2));
-        addIfValid(board, moves, new Point(x - 1, y - 2));
-        addIfValid(board, moves, new Point(x + 2, y - 1));
-        addIfValid(board, moves, new Point(x + 2, y + 1));
-        addIfValid(board, moves, new Point(x - 2, y - 1));
-        addIfValid(board, moves, new Point(x - 2, y + 1));  
+		// check L-shapes
+		addIfValid(board, moves, new Point(x + 1, y + 2));
+		addIfValid(board, moves, new Point(x - 1, y + 2));
+		addIfValid(board, moves, new Point(x + 1, y - 2));
+		addIfValid(board, moves, new Point(x - 1, y - 2));
+		addIfValid(board, moves, new Point(x + 2, y - 1));
+		addIfValid(board, moves, new Point(x + 2, y + 1));
+		addIfValid(board, moves, new Point(x - 2, y - 1));
+		addIfValid(board, moves, new Point(x - 2, y + 1));  
         
 		// Remove moves that making own king in check
 		if(checkKing) {
