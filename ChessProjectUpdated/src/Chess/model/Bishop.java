@@ -29,12 +29,14 @@ public class Bishop extends Piece{
         // if no board given, return empty list
         if (board == null)
             return moves;
-        
+
+		int[] dx = { 1, -1, 1, -1 };
+		int[] dy = { 1, 1, -1, -1 };
         // add moves in diagonal lines to the list
-        addMovesInLine(board, moves, 1, 1);
-        addMovesInLine(board, moves, -1, 1);
-        addMovesInLine(board, moves, 1, -1);
-        addMovesInLine(board, moves, -1, -1);
+
+		for (int i = 0; i < 4; ++i) {
+			addMovesInLine(board, moves, dx[i], dy[i]);
+		}
 
         // check that move doesn't put own king in check
 		if(checkKing) {

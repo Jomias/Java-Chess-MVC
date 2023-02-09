@@ -38,12 +38,12 @@ public class Rook extends Piece {
         // if no board given, return empty list
         if (board == null)
             return moves;
-        
-        addMovesInLine(board, moves, 1, 0);
-        addMovesInLine(board, moves, 0, 1);
-        addMovesInLine(board, moves, -1, 0);
-        addMovesInLine(board, moves, 0, -1);
-        
+
+		int[] dx = { 1, 0, -1, 0 };
+		int[] dy = { 0, 1, 0, -1 };
+		for (int i = 0; i < 4; ++i) {
+			addMovesInLine(board, moves, dx[i], dy[i]);
+		}
         // check that move doesn't put own king in check
 		if(checkKing) {
 			this.removeMovesPutsKingInCheck(board , moves);

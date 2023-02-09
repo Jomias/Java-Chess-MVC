@@ -30,15 +30,12 @@ public class King extends Piece {
 		if (board == null)
 			return moves;
 
+		int[] dx = { -1, 0, 1, 1, 1, 0, -1, -1 };
+		int[] dy = { -1, -1, -1, 0, 1, 1, 1, 0};
 		// add moves around the king if they are valid
-		addIfValid(board, moves, new Point(x - 1, y - 1));
-		addIfValid(board, moves, new Point(x, y - 1));
-		addIfValid(board, moves, new Point(x + 1, y - 1));
-		addIfValid(board, moves, new Point(x + 1, y));
-		addIfValid(board, moves, new Point(x + 1, y + 1));
-		addIfValid(board, moves, new Point(x, y + 1));
-		addIfValid(board, moves, new Point(x - 1, y + 1));
-		addIfValid(board, moves, new Point(x - 1, y));
+		for (int i = 0; i < 8; ++i) {
+			addIfValid(board, moves, new Point(x + dx[i], y + dy[i]));
+		}
 
 		// castling
 		if (this.firstMove) {

@@ -247,7 +247,6 @@ public class ChessController {
 		if (color == null) {
 			return;
 		} else {
-
 			if (color.toString().equals("White")) {
 				whiteAI = true;
 			} else {
@@ -329,6 +328,7 @@ public class ChessController {
 					this.gameBoard.makeMove(playerMove, true);
 					this.selectedPiece = null;
 					this.lastmovedPiece = playerMove.getMovedPiece();
+					this.chessView.getBoardPanel().drawBoard();
 				} else {
 					// Move unsuccessfully, then use new selection if new
 					// selection is same player,

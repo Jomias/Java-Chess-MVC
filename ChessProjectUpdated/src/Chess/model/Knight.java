@@ -33,16 +33,13 @@ public class Knight extends Piece {
 			// if no board given, return empty list
 		if (board == null)
 		    return moves;
-        
+
+		int[] dx = { 1, -1, 1, -1, 2, 2, -2, -2 };
+		int[] dy = { 2, 2, -2, -2, -1, 1, -1, 1 };
 		// check L-shapes
-		addIfValid(board, moves, new Point(x + 1, y + 2));
-		addIfValid(board, moves, new Point(x - 1, y + 2));
-		addIfValid(board, moves, new Point(x + 1, y - 2));
-		addIfValid(board, moves, new Point(x - 1, y - 2));
-		addIfValid(board, moves, new Point(x + 2, y - 1));
-		addIfValid(board, moves, new Point(x + 2, y + 1));
-		addIfValid(board, moves, new Point(x - 2, y - 1));
-		addIfValid(board, moves, new Point(x - 2, y + 1));  
+		for (int i = 0; i < 8; ++i) {
+			addIfValid(board, moves, new Point(x + dx[i], y + dy[i]));
+		}
         
 		// Remove moves that making own king in check
 		if(checkKing) {
